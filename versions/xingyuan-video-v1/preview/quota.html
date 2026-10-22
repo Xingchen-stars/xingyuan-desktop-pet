@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title></title>
+  <link rel="stylesheet" href="quota.css">
+</head>
+<body>
+  <main class="card" aria-label="星渊额度面板">
+    <header><span class="eyebrow">星渊 · 用量小助手</span><button id="dismiss" class="icon" title="关闭额度显示，可从桌宠菜单重新开启" aria-label="关闭额度显示">×</button></header>
+    <div class="heading"><h1>额度与积分</h1><span id="status" class="status">等待查询</span></div>
+    <label class="platform-label" for="provider">显示平台</label>
+    <select id="provider"><option value="codex">Codex · 额度</option><option value="workbuddy">WorkBuddy · 积分</option></select>
+    <section id="content" aria-live="polite" aria-busy="true"></section>
+    <footer>
+      <div class="toolbar"><label class="pin"><input type="checkbox" id="pin">固定显示</label><button id="refresh">刷新</button></div>
+      <p id="updated">尚未获取数据</p>
+      <p class="hint">约每分钟更新 · 仅读取，不自动充值</p>
+    </footer>
+  </main>
+  <script src="quota.js"></script>
+</body>
+</html>

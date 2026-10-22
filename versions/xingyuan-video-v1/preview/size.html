@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>星渊桌宠大小</title>
+  <link rel="stylesheet" href="size.css">
+</head>
+<body>
+  <main class="size-panel">
+    <header>
+      <div>
+        <span class="eyebrow">星渊桌宠</span>
+        <h1>自定义大小</h1>
+      </div>
+      <output id="size-output">260 px</output>
+    </header>
+
+    <div class="slider-row">
+      <button id="smaller" type="button" aria-label="缩小">−</button>
+      <input id="size-slider" type="range" min="150" max="520" step="1" value="260">
+      <button id="larger" type="button" aria-label="放大">＋</button>
+    </div>
+
+    <div class="exact-row">
+      <label for="size-number">精确大小</label>
+      <div class="number-wrap">
+        <input id="size-number" type="number" min="150" max="520" step="1" value="260">
+        <span>px</span>
+      </div>
+    </div>
+
+    <p>拖动滑块会实时变化，并自动保存。范围 150–520 px。</p>
+
+    <footer>
+      <button id="reset" class="secondary" type="button">恢复 260 px</button>
+      <button id="done" class="primary" type="button">完成</button>
+    </footer>
+  </main>
+  <script src="size.js"></script>
+</body>
+</html>

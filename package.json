@@ -1,0 +1,14 @@
+{
+  "name": "xingyuan-desktop-pet",
+  "productName": "星渊桌宠",
+  "version": "0.5.0",
+  "private": true,
+  "description": "星渊透明视频桌宠：桌面互动、统一设置与只读额度卡片",
+  "main": "versions/xingyuan-video-v1/preview/pet.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/hit-test.test.cjs tests/geometry.test.cjs",
+    "build:portable": "powershell -NoProfile -File versions/xingyuan-video-v1/构建便携应用.ps1"
+  },
+  "devDependencies": { "electron": "35.7.5" }
+}

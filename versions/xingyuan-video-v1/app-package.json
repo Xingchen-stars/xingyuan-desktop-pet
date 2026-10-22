@@ -1,0 +1,8 @@
+{
+  "name": "xingyuan-desktop-pet",
+  "productName": "星渊桌宠",
+  "version": "0.5.0",
+  "private": true,
+  "description": "星渊透明视频桌宠",
+  "main": "preview/pet.cjs"
+}

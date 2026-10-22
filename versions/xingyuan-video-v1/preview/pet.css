@@ -1,0 +1,107 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+}
+
+.pet-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  -webkit-app-region: no-drag;
+}
+
+body.is-dragging .pet-stage {
+  cursor: grabbing;
+}
+
+.pet-sprite {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform-origin: 50% 88%;
+}
+
+.pet-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 180ms ease-out;
+}
+
+.pet-video.is-active {
+  opacity: 1;
+}
+
+.window-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease-out;
+  -webkit-app-region: no-drag;
+}
+
+.window-controls button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 38%);
+  border-radius: 13px;
+  color: white;
+  background: rgb(10 18 42 / 68%);
+  font: 18px/22px "Segoe UI", sans-serif;
+  cursor: pointer;
+  transition: background 120ms ease-out;
+}
+
+body.is-pointer-inside .window-controls,
+.window-controls:focus-within {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.window-controls button:hover {
+  background: rgb(35 57 112 / 88%);
+}
+
+#load-error {
+  position: absolute;
+  inset: auto 18px 18px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: white;
+  background: rgb(100 20 30 / 82%);
+  font: 13px/1.4 "Microsoft YaHei UI", sans-serif;
+  z-index: 30;
+  -webkit-app-region: no-drag;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-video, .window-controls { transition: none; }
+}

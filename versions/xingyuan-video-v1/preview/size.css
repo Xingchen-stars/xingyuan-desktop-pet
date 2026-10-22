@@ -1,0 +1,132 @@
+:root {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  background: #0b1020;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #f6f8ff;
+  background:
+    radial-gradient(circle at 85% 15%, rgb(80 115 255 / 24%), transparent 42%),
+    linear-gradient(145deg, #0b1020, #121c3c);
+}
+
+.size-panel {
+  min-height: 100vh;
+  padding: 22px 24px 18px;
+}
+
+header,
+.slider-row,
+.exact-row,
+footer {
+  display: flex;
+  align-items: center;
+}
+
+header,
+.exact-row,
+footer {
+  justify-content: space-between;
+}
+
+.eyebrow {
+  color: #8eabff;
+  font-size: 13px;
+}
+
+h1 {
+  margin: 2px 0 0;
+  font-size: 25px;
+}
+
+#size-output {
+  min-width: 104px;
+  padding: 10px 14px;
+  border: 1px solid rgb(151 177 255 / 48%);
+  border-radius: 14px;
+  background: rgb(18 30 68 / 74%);
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.slider-row {
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.slider-row button {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #607ac8;
+  border-radius: 13px;
+  background: #243b82;
+  color: white;
+  font-size: 29px;
+  cursor: pointer;
+}
+
+#size-slider {
+  flex: 1;
+  accent-color: #86a5ff;
+}
+
+.exact-row {
+  margin-top: 18px;
+  color: #c9d4f6;
+  font-size: 14px;
+}
+
+.number-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#size-number {
+  width: 94px;
+  padding: 8px 10px;
+  border: 1px solid #4c619d;
+  border-radius: 9px;
+  background: #111a35;
+  color: white;
+  font: 600 15px/1 "Segoe UI", sans-serif;
+}
+
+p {
+  margin: 14px 0 0;
+  color: #96a8da;
+  font-size: 12px;
+}
+
+footer {
+  gap: 10px;
+  margin-top: 18px;
+}
+
+footer button {
+  padding: 9px 15px;
+  border-radius: 9px;
+  font: 600 13px/1 "Microsoft YaHei UI", sans-serif;
+  cursor: pointer;
+}
+
+.secondary {
+  border: 1px solid #485c96;
+  background: transparent;
+  color: #cbd6f8;
+}
+
+.primary {
+  margin-left: auto;
+  border: 1px solid #89a6ff;
+  background: #6f91f5;
+  color: #08112c;
+}

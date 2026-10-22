@@ -1,0 +1,14 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { contains, sourcePoint, alphaHit } = require('../versions/xingyuan-video-v1/preview/hit-test.js');
+const rect = { left: 10, top: 20, width: 260, height: 260 };
+test('transparent pixels never intercept, irrespective of hidden RGB', () => assert.equal(alphaHit(new Uint8ClampedArray([255, 255, 255, 0, 0, 255, 0, 0])), false));
+test('faint segmentation residue is not interactive', () => assert.equal(alphaHit([0, 0, 0, 12]), false));
+test('visible fur is interactive', () => assert.equal(alphaHit([0, 0, 0, 40]), true));
+test('crossfade opacity participates in alpha threshold', () => { assert.equal(alphaHit([0, 0, 0, 100], .1), false); assert.equal(alphaHit([0, 0, 0, 100], .5), true); });
+test('any visible pixel in tolerance patch can hit', () => assert.equal(alphaHit([0, 0, 0, 0, 0, 0, 0, 255]), true));
+test('rectangle edges exclude outside and invalid coordinates', () => { assert.equal(contains(rect, 10, 20), true); assert.equal(contains(rect, 270, 20), false); assert.equal(contains(rect, NaN, 20), false); });
+test('square video source maps DPI-independent CSS coordinates', () => { const p = sourcePoint(720, 720, rect, 140, 150); assert.equal(p.x, 360); assert.equal(p.y, 360); });
+test('object-fit letterboxing is excluded', () => { assert.equal(sourcePoint(720, 360, rect, 140, 30), null); const p = sourcePoint(720, 360, rect, 140, 150); assert.equal(p.x, 360); assert.equal(p.y, 180); });
+test('loading or zero-size media cannot produce hits', () => { assert.equal(sourcePoint(0, 0, rect, 100, 100), null); assert.equal(sourcePoint(720, 720, { ...rect, width: 0 }, 10, 20), null); });
+test('animated sprite scale/translation is respected by source mapping', () => { const p = sourcePoint(720, 720, { left: -4, top: 9, width: 288, height: 288 }, 140, 153); assert.equal(p.x, 360); assert.equal(p.y, 360); });

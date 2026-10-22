@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; media-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title></title>
+  <link rel="stylesheet" href="pet.css">
+</head>
+<body>
+  <main class="pet-stage" aria-label="星渊桌宠">
+    <div class="pet-sprite">
+    <video
+      id="pet-video-a"
+      class="pet-video is-active"
+      src="../edit/animations/generated-idle-v1/xingyuan-idle-alpha-v1.webm"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+    <video
+      id="pet-video-b"
+      class="pet-video"
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+    </div>
+    <div class="window-controls">
+      <button id="menu-button" type="button" title="动作菜单">⋮</button>
+      <button id="minimize-button" type="button" title="最小化">—</button>
+      <button id="close-button" type="button" title="关闭">×</button>
+    </div>
+    <p id="load-error" hidden>动作视频未能加载</p>
+  </main>
+  <script src="hit-test.js"></script>
+  <script src="pet.js"></script>
+</body>
+</html>

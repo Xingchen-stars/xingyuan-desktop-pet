@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'"><meta name="viewport" content="width=device-width, initial-scale=1"><title>星渊桌宠 · 设置</title><link rel="stylesheet" href="settings.css"></head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><div>星渊<span>桌面上的星空伙伴</span></div></div>
+    <nav aria-label="设置分类">
+      <button class="nav-item selected" data-tab="appearance" aria-current="page">外观与行为</button>
+      <button class="nav-item" data-tab="actions">动作</button>
+      <button class="nav-item" data-tab="quota">额度显示</button>
+    </nav>
+    <p class="sidebar-note">每次调整即时生效<br>偏好会自动保存</p>
+  </aside>
+  <main>
+    <header><p class="eyebrow">XINGYUAN · SETTINGS</p><h1 id="page-heading">外观与行为</h1><p id="page-description">调整到舒服的大小，让星渊按你的节奏陪伴。</p></header>
+    <div id="connection-error" class="notice error" role="alert" hidden>设置连接失败，请关闭本窗口后从托盘重新打开。</div>
+    <section id="appearance" aria-labelledby="size-heading">
+      <div class="card">
+        <div class="section-head"><h2 id="size-heading">角色大小</h2><output id="size-output" for="size-slider">260 px</output></div>
+        <label class="sr-only" for="size-slider">角色大小滑杆</label><input id="size-slider" type="range" min="150" max="520" value="260">
+        <div class="size-scale"><span>150 px · 小巧</span><span>520 px · 醒目</span></div>
+        <div class="size-tools"><button id="smaller" aria-label="缩小10像素">−</button><label for="size-number" class="sr-only">精确大小</label><input id="size-number" type="number" min="150" max="520" step="1" value="260"><span>px</span><button id="larger" aria-label="放大10像素">＋</button><button class="text-button" id="size-reset">恢复 260 px</button></div>
+        <div class="presets" aria-label="常用大小"><button data-size="180">180</button><button data-size="220">220</button><button data-size="260">260</button><button data-size="320">320</button><button data-size="420">420 px</button></div>
+      </div>
+      <div class="card row"><div><h2>自主小动作</h2><p>清醒待机时，偶尔活泼一下。睡觉或互动时不打扰。</p></div><label class="switch"><input id="auto-actions" type="checkbox"><span aria-hidden="true"></span><span class="sr-only">自主小动作</span></label></div>
+      <div class="card"><h2>桌面位置</h2><p>拖动角色即可移动，松手后记住位置。找不到时可以一键找回。</p><div class="button-row"><button id="visibility">隐藏星渊</button><button id="home">回到初始位置</button></div></div>
+    </section>
+    <section id="actions" aria-labelledby="actions-heading" hidden>
+      <div class="current-action"><span class="status-dot"></span><span>当前动作</span><strong id="current-action">安静待机</strong></div>
+      <h2 id="actions-heading" class="section-label">选择一个动作</h2>
+      <div class="action-grid">
+        <button class="action-card" data-action="idle"><span class="action-symbol" aria-hidden="true">✦</span><strong>安静待机</strong><span>轻轻呼吸，安静陪伴</span></button>
+        <button class="action-card" data-action="active"><span class="action-symbol" aria-hidden="true">✧</span><strong>活泼一下</strong><span>播放一次，然后回到待机</span></button>
+        <button class="action-card" data-action="sleep"><span class="action-symbol" aria-hidden="true">☾</span><strong>进入睡眠</strong><span>趴上星云，再进入熟睡循环</span></button>
+        <button class="action-card" data-action="sleep-loop"><span class="action-symbol" aria-hidden="true">☁</span><strong>熟睡循环</strong><span>直接在星云软垫上安睡</span></button>
+      </div>
+      <p class="notice">切换动作会显示星渊。观察、走路和起身等新动作，等待后续素材。</p>
+    </section>
+    <section id="quota" aria-labelledby="provider-heading" hidden>
+      <div class="card"><h2 id="provider-heading">选择平台</h2><fieldset class="choice-list"><legend class="sr-only">额度平台</legend>
+        <label><input type="radio" name="provider" value="codex"><div><strong>Codex</strong><span>读取本机已登录账号的额度状态</span></div><span class="tag">额度</span></label>
+        <label><input type="radio" name="provider" value="workbuddy"><div><strong>WorkBuddy</strong><span>暂未接通积分读取，不显示虚构数值</span></div><span class="tag muted">未接通</span></label>
+      </fieldset></div>
+      <div class="card"><h2>卡片显示方式</h2><fieldset class="mode-options"><legend class="sr-only">额度卡片显示方式</legend><label><input type="radio" name="quota-mode" value="hover"><span>悬停时显示</span></label><label><input type="radio" name="quota-mode" value="pinned"><span>固定显示</span></label><label><input type="radio" name="quota-mode" value="off"><span>不显示</span></label></fieldset><p>隐藏角色时，额度卡片也会隐藏。</p></div>
+      <div class="card quota-state"><div class="section-head"><h2>连接状态</h2><button id="refresh-quota">刷新</button></div><strong id="quota-status">等待查询</strong><p id="quota-message">尚未获取平台数据</p></div>
+      <p class="notice">只读查询，不发起模型对话，不会自动购买或消耗模型调用积分。</p>
+    </section>
+    <footer><span id="save-status" role="status">正在连接…</span><button id="done" class="primary">完成</button></footer>
+  </main><script src="settings.js"></script>
+</body></html>

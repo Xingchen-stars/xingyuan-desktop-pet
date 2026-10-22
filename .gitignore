@@ -1,0 +1,16 @@
+node_modules/
+**/dist/
+**/runtime-data*/
+**/Cache/
+**/Code Cache/
+**/GPUCache/
+**/logs/
+*.log
+*.tmp
+*.zip
+.env
+.env.*
+auth.json
+xingyuan-settings.json
+.DS_Store
+Thumbs.db
